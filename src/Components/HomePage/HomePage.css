@@ -1,0 +1,86 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #007bff;
+    color: white;
+    padding: 15px 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+  
+  .signup-btn {
+    background: white;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin: 15px 0;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  /* Features */
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+  }
+  
+  .feature {
+    text-align: center;
+    max-width: 300px;
+    margin: 20px;
+  }
+  
+  .feature h2 {
+    font-size: 22px;
+    color: #007bff;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+  }
+  
