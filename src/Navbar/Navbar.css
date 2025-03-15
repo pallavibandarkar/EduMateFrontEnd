@@ -1,0 +1,67 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:white;
+    padding-left: 10px;
+    border-bottom:  1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+.logo-name {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.menu {
+    font-size: 26px;
+    cursor: pointer;
+    color: #333;
+}
+
+.edumateLogo {
+    height: 50px;
+    width: auto;
+    border-radius: 15%;
+}
+
+.logoName {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.profileIcons{
+    font-size: 26px;
+    cursor: pointer;
+    color: #333;
+}
+
+.btns{
+    background-color: rgb(51, 100, 224);
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 10%;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-width:1050px) {
+    .menu{
+        display: none;
+    }
+}

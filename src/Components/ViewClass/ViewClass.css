@@ -1,0 +1,142 @@
+/* General Styling */
+.class-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+}
+
+.loading, .error {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: #d9534f;
+}
+
+/* Header Styling */
+.header {
+    text-align: center;
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.class-code span {
+    font-weight: bold;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+h3 {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 8px;
+}
+
+/* Teacher Card */
+.teacher {
+    background: #f0f8ff;
+}
+
+.email {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Grid Layout for Students & Assignments */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.student-card, .assignment-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.student-card:hover, .assignment-card:hover {
+    transform: translateY(-3px);
+}
+
+.assignment-card h4 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.assignment-card a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.assignment-card a:hover {
+    text-decoration: underline;
+}
+
+.deadline {
+    font-size: 14px;
+    color: #d9534f;
+}
+
+/* Empty State */
+.empty {
+    color: #777;
+    font-style: italic;
+    text-align: center;
+}
+
+.upload-section {
+    margin-top: 10px;
+}
+
+.upload-section input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.upload-section button {
+    background: #007BFF;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.upload-section button:hover {
+    background: #0056b3;
+}
+
+.upload-section button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+

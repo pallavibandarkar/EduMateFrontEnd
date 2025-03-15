@@ -1,7 +1,9 @@
 .container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 60% !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     text-align: center;
     background: #f9f9f9;
     border-radius: 8px;
@@ -20,8 +22,6 @@
   }
   
   .input {
-    width: 100%;
-    padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
