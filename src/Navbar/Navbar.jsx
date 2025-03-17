@@ -27,10 +27,10 @@ export default function Navbar({ toggleSidebar }){
             setUser("")
             console.log(result.data)
             setTimeout(()=>{
-                navigate("/")
+                navigate("/EduMate")
             },2000)
         }catch(err){
-            console.error("Logout error:", error.response?.data || error.message);
+            console.error("Logout error:", err.response?.data || err.message);
         }
     }
 
@@ -40,7 +40,7 @@ export default function Navbar({ toggleSidebar }){
 
     return(
         <div className="nav">
-            <div className="logo-name" onClick={()=>navigate("/")}>
+            <div className="logo-name" onClick={()=>navigate("/EduMate")}>
                 <FontAwesomeIcon icon={faBars} className="menu" onClick={toggleSidebar}/>
                 <img src={assets.EdumateLogo} className="edumateLogo"/>
                 <h4 className="logoName">EduMate</h4>
@@ -48,12 +48,12 @@ export default function Navbar({ toggleSidebar }){
             <div className="profile">
                 {user?
                 <>
-                <p onClick={()=>navigate("/joinClass")}>Join Class</p>
-                <FontAwesomeIcon icon={faPlus} className="profileIcons" onClick={()=>navigate("/createClass")}/>
+                <p onClick={()=>navigate("/EduMate/joinClass")}>Join Class</p>
+                <FontAwesomeIcon icon={faPlus} className="profileIcons" onClick={()=>navigate("/EduMate/createClass")}/>
                 <FontAwesomeIcon icon={faUser} className="profileIcons"/>
                 <button className="btns" onClick={logOutUser}>Logout</button>
                 </>:
-                <button className="btns" onClick={()=>navigate('/login')}>Login</button>
+                <button className="btns" onClick={()=>navigate('/EduMate/login')}>Login</button>
                 }
                 
                 

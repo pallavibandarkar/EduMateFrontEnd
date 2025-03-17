@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginSignup.css";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -23,6 +25,9 @@ const LoginSignup = () => {
           username: formData.username,
           password: formData.password,
         },{withCredentials:true});
+        toast.success("Login successful! Welcome Back!!",{
+          autoClose:2000
+        })
       } else {
         result = await axios.post("http://localhost:8080/profile/signup", {
           username: formData.username,
@@ -31,12 +36,14 @@ const LoginSignup = () => {
         }, {
           headers: { "Content-Type": "application/json" },withCredentials:true
         });
+        toast.success("Signup successful!",{autoClose:2000})
       }
   
       console.log(result.data);
-  
-      // Reset input fields after successful form submission
       setFormData({ username: "", password: "", email: "" });
+      setTimeout(()=>{
+        navigate("/EduMate")
+      },3000)
   
     } catch (err) {
       console.log(err.response?.data || err.message);
@@ -45,6 +52,7 @@ const LoginSignup = () => {
 
   return (
     <div className="auth-container">
+      <ToastContainer position="top-right" autoClose={2000} />
       <div className="auth-box">
         <h2>{isLogin ? "Login" : "Sign Up"}</h2>
         <form onSubmit={handleSubmit}>

@@ -1,12 +1,12 @@
-/* General Styling */
-.class-container {
+.class-container1 {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 100px auto;
     padding: 20px;
     font-family: "Poppins", sans-serif;
     color: #333;
+    display: flex;
+    flex-direction: column;   
 }
-
 .loading, .error {
     text-align: center;
     font-size: 18px;
@@ -14,10 +14,10 @@
     color: #d9534f;
 }
 
-/* Header Styling */
 .header {
     text-align: center;
     background: #4CAF50;
+    width: 90%;
     color: white;
     padding: 15px;
     border-radius: 10px;
@@ -25,11 +25,6 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.class-code span {
-    font-weight: bold;
-}
-
-/* Cards */
 .card {
     background: white;
     padding: 20px;
@@ -43,32 +38,22 @@
     transform: scale(1.02);
 }
 
-h3 {
+.text{
     color: #4CAF50;
     border-bottom: 2px solid #4CAF50;
     padding-bottom: 8px;
 }
 
-/* Teacher Card */
-.teacher {
-    background: #f0f8ff;
-}
-
-.email {
-    font-size: 14px;
-    color: #555;
-}
-
-/* Grid Layout for Students & Assignments */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 15px;
     margin-top: 10px;
 }
 
 .student-card, .assignment-card {
     background: #f9f9f9;
+    width: 80%;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -101,7 +86,6 @@ h3 {
     color: #d9534f;
 }
 
-/* Empty State */
 .empty {
     color: #777;
     font-style: italic;
@@ -139,4 +123,62 @@ h3 {
     background: gray;
     cursor: not-allowed;
 }
+
+.tassignment-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+.tassignment-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+.tassignment-input,
+.tassignment-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 10px;
+  }
+  
+.tassignment-textarea {
+    height: 80px;
+    resize: none;
+  }
+  
+.tassignment-file {
+    width: 100%;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+.tassignment-button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+.tassignment-button:hover {
+    background-color: #0056b3;
+  }
+  
 

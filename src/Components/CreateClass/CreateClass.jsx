@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CreateClass.css";  
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateClass = () => {
 //   const [className, setClassName] = useState("");
 //   const [div, setDiv] = useState("");
+const navigate = useNavigate()
 const [data,setData] = useState({
     className : "",
     div : ""
@@ -18,12 +22,15 @@ const [data,setData] = useState({
         div: data.div
       },{withCredentials:true})
       console.log(result)
+      toast.success("Class created successfully!");
       setData({
         className:"",
         div:"",
       })
+      navigate("/EduMate",1500)
     } catch (error) {
-      alert("Failed to create class.");
+      toast.error(error.response?.data?.error || "Failed to create class.");
+      navigate("/EduMate")
     }
   };
 
@@ -50,6 +57,7 @@ const [data,setData] = useState({
         />
         <button type="submit" className="button">Create Class</button>
       </form>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

@@ -19,11 +19,11 @@ function App() {
     <div>
       <Navbar toggleSidebar={toggleSidebar}/>
       <Routes>
-        <Route path="/" element={<Classroom isSidebarVisible={isSidebarVisible}/>}/>
-        <Route path="/login" element={<LoginSignup/>}/>
-        <Route path="/createClass" element={<CreateClass/>}/>
-        <Route path="/joinClass" element={<JoinClass/>}/>
-        <Route path="/viewClass/:id" element={<ViewClass/>} />
+        <Route path="/EduMate" element={<Classroom isSidebarVisible={isSidebarVisible}/>}/>
+        <Route path="/EduMate/login" element={<LoginSignup/>}/>
+        <Route path="/EduMate/createClass" element={<CreateClass/>}/>
+        <Route path="/EduMate/joinClass" element={<JoinClass/>}/>
+        <Route path="/EduMate/viewClass/:id" element={<ViewClass/>} />
       </Routes>
     </div>
   )
