@@ -16,6 +16,7 @@ export default function Classroom({isSidebarVisible}) {
         withCredentials: true,
       });
       setClasses(result.data.classes);
+      console.log(result.data)
       toast.success("Classes loaded successfully!");
     } catch (err) {
       toast.error("Failed to fetch classes. Please try again.");

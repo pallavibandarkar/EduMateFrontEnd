@@ -18,7 +18,9 @@ const JoinClass = () => {
             );
             toast.success("Successfully joined the class!");
             setClassCode("");
-            navigate("/EdumMate",1500)
+            setTimeout(()=>{
+                navigate("/EduMate")
+            },3000)
         } catch (error) {
             console.log(error)
             toast.error(error.response?.data?.error || "Failed to join class.");
@@ -27,6 +29,7 @@ const JoinClass = () => {
     };
 
     return (
+        <>
         <div className="container">
             <h2>Join a Class</h2>
             <form onSubmit={handleJoinClass} className="form">
@@ -40,8 +43,9 @@ const JoinClass = () => {
                 />
                 <button type="submit" className="button">Join Class</button>
             </form>
-            <ToastContainer position="top-right" autoClose={3000} />
         </div>
+         <ToastContainer position="top-right" autoClose={3000} />
+         </>
     );
 };
 
