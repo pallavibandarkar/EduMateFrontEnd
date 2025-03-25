@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const LoginSignup = () => {
+const LoginSignup = ({setUser}) => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({ email: "", password: "" ,username:""});
   const navigate = useNavigate();
@@ -25,6 +25,8 @@ const LoginSignup = () => {
           username: formData.username,
           password: formData.password,
         },{withCredentials:true});
+        console.log(result.data.data._id)
+        setUser(result.data.data._id)
         toast.success("Login successful! Welcome Back!!",{
           autoClose:2000
         })

@@ -1,53 +1,79 @@
 .sidebar {
     width: 230px;
-    background-color: white;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     height: calc(100vh - 80px);
     overflow-y: auto;
     padding: 15px;
     display: flex;
-    flex:0 0 230px;
+    flex: 0 0 230px;
     flex-direction: column;
-    gap: 5px;
-    transition: all 0.3s ease-in;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
     border-right: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .firstSec, .teaching, .enrolled, .settings {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin: 0;
+    gap: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-link {
     display: flex;
     align-items: center;
     border-radius: 8px;
+    padding: 10px 12px;
     cursor: pointer;
     transition: background 0.3s ease-in-out, transform 0.2s;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    color: #34495e;
+    color: #2c3e50;
 }
 
-.sidebar-link p{
+.sidebar-link p {
     padding-left: 15px;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0;
 }
 
 .sidebar-link:hover {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.08);
+    transform: translateX(8px);
+}
+
+.sidebar hr {
+    border: none;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 8px 0;
+}
+
+.teaching ul, .enrolled ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-subitem {
+    padding: 8px 15px;
+    font-size: 16px;
+    color: #495057;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    margin: 2px 0;
+}
+
+.sidebar-subitem:hover {
+    background: rgba(0, 0, 0, 0.05);
     transform: translateX(5px);
+    font-weight: 500;
 }
 
 .sidebar.visible {
     left: 0;
 }
-
 
 @media (max-width: 1048px) {
     .sidebar {
@@ -55,8 +81,7 @@
         left: -270px;
         top: 80px;
         height: calc(100vh - 80px);
-        overflow-y: auto;
         transition: left 0.3s ease-in-out;
-        box-shadow: none;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15);
     }
 }

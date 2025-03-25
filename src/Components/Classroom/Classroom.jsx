@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Classroom({isSidebarVisible}) {
+export default function Classroom({isSidebarVisible , user}) {
   const navigate = useNavigate()
   const [classes, setClasses] = useState([]);
 
@@ -34,10 +34,12 @@ export default function Classroom({isSidebarVisible}) {
        
         <Sidebar isSidebarVisible={isSidebarVisible}/>
         <div className="allClasses class-container">
-        {classes.length > 0 ? (
+        {user && classes.length > 0 ? (
           classes.map((classItem) => (
             <div key={classItem._id} className="class-card ">
-              <h3 style={{color:"#4CAF50"}}>{classItem.className}</h3>
+              <div className="class-banner">
+                <h3>{classItem.className}</h3>
+              </div>
               <p><strong>Class Code:</strong> {classItem.classCode}</p>
               <p><strong>Division:</strong> {classItem.div}</p>
               <p><strong>Instructor:</strong> {classItem.classTeacher.email}</p>

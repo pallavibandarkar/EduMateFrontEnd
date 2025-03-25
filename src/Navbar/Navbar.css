@@ -44,6 +44,10 @@
     padding-right: 20px;
 }
 
+.profile p{
+    cursor: pointer;
+}
+
 .profileIcons{
     font-size: 26px;
     cursor: pointer;
@@ -63,5 +67,18 @@
 @media (min-width:1050px) {
     .menu{
         display: none;
+    }
+}
+
+@media (max-width:800px) {
+    .profile{
+        gap: 5px;
+        padding-right: 10px;
+    }
+    .logo-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
     }
 }
