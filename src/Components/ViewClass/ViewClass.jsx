@@ -25,6 +25,7 @@ const ViewClass = ({user}) => {
     const [activeTab, setActiveTab] = useState("assignments");
     const [announcementContent, setAnnouncementContent] = useState("");
     const [submissionStats, setSubmissionStats] = useState({});
+    const [updatedScores, setUpdatedScores] = useState({});
 
     useEffect(() => {
         const fetchClassDetails = async () => {
@@ -146,6 +147,7 @@ const ViewClass = ({user}) => {
         }
         
     };
+    
 
     
     const getSubmissionStats = () => {
@@ -182,6 +184,7 @@ const ViewClass = ({user}) => {
         if (activeTab === "review") {
             fetchSubmissionData().then(() => {
                 const stats = getSubmissionStats();
+                
                 setSubmissionStats(stats);
             });
         }
@@ -193,15 +196,39 @@ const ViewClass = ({user}) => {
             {
                 label: 'Submitted Before Deadline',
                 data: Object.values(submissionStats).map(stat => stat.beforeDeadline),
-                backgroundColor: '#28A745', // Green
+                backgroundColor: '#28A745',
             },
             {
                 label: 'Submitted After Deadline',
                 data: Object.values(submissionStats).map(stat => stat.afterDeadline),
-                backgroundColor: '#DC3545', // Red
+                backgroundColor: '#DC3545', 
             },
         ],
     };
+
+    const handleScoreChange = (submissionId, newScore) => {
+        setUpdatedScores((prevScores) => ({
+            ...prevScores,
+            [submissionId]: newScore,
+        }));
+    };
+
+    const handleUpdateScore = async (submissionId) => {
+        const updatedScore = updatedScores[submissionId];
+        if (updatedScore === undefined) {
+            return alert("Please enter a new score.");
+        }
+        console.log(updatedScores[submissionId])
+        try {
+            const response = await axios.put(`http://localhost:8080/class/updateScore/${submissionId}`, { score: updatedScore }, { withCredentials: true });
+            toast.success("Score updated successfully!");
+            fetchSubmissionData(); 
+        } catch (err) {
+            console.log(err)
+            toast.error("Failed to update score.");
+        }
+    };
+    
 
     if (loading) return <p className="loading">Loading...</p>;
     if (error) return <p className="error">{error}</p>;
@@ -331,7 +358,53 @@ const ViewClass = ({user}) => {
                 <div className="review-dashboard">
                     <h3>Submission Analytics Dashboard</h3>
                     <Bar data={barData} options={{ responsive: true }} />
+                    <div>
+                    <table>
+                <thead className="SubmissionTable">
+                    <tr>
+                        <th>Student</th>
+                        <th>Assignment Name</th>
+                        <th>Submission</th>
+                        <th>Assignment File</th>
+                        <th>Assignment Solution</th>
+                        <th>Score</th>
+                        <th>Update Score</th>
+                    </tr>
+                </thead>
+                <tbody className="SubmissionData">
+                    {submissionData.map((submission, index) => (
+                        <tr key={submission._id}>
+                            <td>{submission.studentId.username}</td>
+                            <td>{submission.assignmentId.title}</td>
+                            <td>{new Date(submission.submittedOn )<= new Date(submission.assignmentId.deadline)?"Before Deadline":"After Deadline"}</td>
+                            <td>
+                                <a href={submission.assignmentId.file.url} target="_blank" rel="noopener noreferrer">
+                                    View Assignment
+                                </a>
+                            </td>
+                            <td>
+                                <a href={submission.file.url} target="_blank" rel="noopener noreferrer">
+                                    View Solution
+                                </a>
+                            </td>
+                            <td>
+                                <p>{submission.aiGrade.score}</p>
+                            </td>
+                            <td>
+                                <input
+                                    type="number"
+                                    placeholder="New Score"
+                                    onChange={(e) => handleScoreChange(submission._id, e.target.value)}
+                                />
+                                <button onClick={() => handleUpdateScore(submission._id)}>Update</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+                    </div>
                 </div>
+                 
             )}
             
             <ToastContainer position="top-right" autoClose={3000} />
